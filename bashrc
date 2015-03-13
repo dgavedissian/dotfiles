@@ -37,7 +37,7 @@ fi
 # Aliases
 alias pd="pushd"
 alias ls="ls --color=auto"
-alias la="ls -A"
+alias la="ls -lhA"
 alias ll="ls -lh"
 alias gl="git log --graph --all"
 alias gb="git branch --all"
