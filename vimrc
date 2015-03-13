@@ -55,7 +55,6 @@ Plugin 'jmcantrell/vim-virtualenv'
 
 " Rust 
 Plugin 'wting/rust.vim'
-Plugin 'phildawes/racer'
 
 " Go
 Plugin 'fatih/vim-go'

@@ -1,0 +1,7 @@
+Host doc
+  HostName shell2.doc.ic.ac.uk
+  User da913
+
+Host *.doc
+  ProxyCommand ssh -q doc nc -q0 %h.ic.ac.uk 22
+  User da913
