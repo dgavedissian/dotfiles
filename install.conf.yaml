@@ -1,9 +1,11 @@
 - shell:
+    - mkdir -p ~/.config/fish
     - mkdir -p ~/.ssh
     - mkdir -p ~/.vim
 
 - link:
     ~/.bashrc: bashrc
+    ~/.config/fish/functions: config/fish/functions
     ~/.dir_colors: dir_colors
     ~/.tmux.conf: tmux.conf
     ~/.ssh/config: ssh/config
