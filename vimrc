@@ -1,142 +1,99 @@
-" Don't bother with vi compatibility
-set nocompatible
-
-" Set temp dirs
-set backupdir=~/.vim/backup//
-set directory=~/.vim/swap//
-
-" Configure Vundle
+"""""""""""""""""""""""""
+"       Plugins         "
+"""""""""""""""""""""""""
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
-" Vundle
-Plugin 'gmarik/Vundle.vim'
+Plugin 'gmarik/Vundle.vim'          " Vundle
+Plugin 'tpope/vim-fugitive'         " Git commands from vim
+Plugin 'airblade/vim-gitgutter'     " Git status in the gutter
+Plugin 'bling/vim-airline'          " Status bar
+Plugin 'Valloric/YouCompleteMe'     " Autocomplete for C/C++/Python
+Plugin 'morhetz/gruvbox'            " Colour Scheme
+Plugin 'scrooloose/nerdtree'        " File system explorer
+Plugin 'jistr/vim-nerdtree-tabs'    " Better tab support for NERDTree
+Plugin 'terryma/vim-multiple-cursors' " Sublime-like multiple cursors
+Plugin 'kien/ctrlp.vim'             " Fuzzy file/string searching
+Plugin 'Lokaltog/vim-easymotion'    " (don't really use this)
+Plugin 'Raimondi/delimitMate'       " Match opening delimiters with closing delimiters
+Plugin 'octol/vim-cpp-enhanced-highlight' " Enhanced C++ syntax
+Plugin 'drmikehenry/vim-headerguard' " Insert C/C++ header guards with a command
+Plugin 'tikhomirov/vim-glsl'        " GLSL syntax highlighting
+Plugin 'jmcantrell/vim-virtualenv'  " Virtualenv from vim
+Plugin 'wting/rust.vim'             " Rust Syntax
+Plugin 'fatih/vim-go'               " Go syntax and access to go tools from vim
+Plugin 'dag/vim2hs'                 " Haskell syntax with folding
 
-" Git Plugins
-Plugin 'tpope/vim-fugitive' 
-Plugin 'airblade/vim-gitgutter'
-
-" Status Line
-Plugin 'bling/vim-airline'
-
-" Autocomplete
-Plugin 'Valloric/YouCompleteMe'
-
-" Theme
-Plugin 'morhetz/gruvbox'
-
-" File System Explorer
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-
-" Sublime-like multiple cursors
-Plugin 'terryma/vim-multiple-cursors'
-
-" Fuzzy file searching
-Plugin 'kien/ctrlp.vim'
-
-" Easy Motion
-Plugin 'Lokaltog/vim-easymotion'
-
-" Match opening delimeters with closing delimiters
-Plugin 'Raimondi/delimitMate'
-
-"" Language specifics
-" C/C++
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'drmikehenry/vim-headerguard'
-
-" GLSL
-Plugin 'tikhomirov/vim-glsl'
-
-" Python
-Plugin 'jmcantrell/vim-virtualenv'
-
-" Rust 
-Plugin 'wting/rust.vim'
-
-" Go
-Plugin 'fatih/vim-go'
-
-" Haskell
-Plugin 'dag/vim2hs'
-
-" Finish adding Vundle bundles
 call vundle#end()
 filetype plugin indent on
 
-" Syntax on (of course!)
-syntax on
-
-" All powerful backspace
-set backspace=2
-
-" Colourful terminal when supported
-set t_Co=256
-set background=dark
-
-" Colour scheme settings 
+"""""""""""""""""""""""""""""
+"       Plugin Settings     "
+"""""""""""""""""""""""""""""
 if !has("gui_running")
-   let g:gruvbox_italic=0
+   let g:gruvbox_italic=0           " Disable italics in terminal
 endif
-let g:gruvbox_bold=0
-colorscheme gruvbox
+let g:gruvbox_bold=0                " Disable bold
 
-" C++ syntax config
-let g:cpp_class_scope_highlight = 1
+let g:cpp_class_scope_highlight = 1 " Highlight class scopes
 
-" vim-go
-let g:go_fmt_fail_silently = 1
-let g:go_fmt_command = "goimports"
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
+let g:go_fmt_fail_silently = 1      " Don't display an error when gofmt fails
+let g:go_fmt_command = "goimports"  " Use goimports to resolve imports automatically
+let g:go_highlight_functions = 1    " Highlight functions
+let g:go_highlight_methods = 1      " Highlight methods
+let g:go_highlight_structs = 1      " Highlight structs
 
-" YouCompleteMe default config
-let g:ycm_global_ycm_extra_conf = '~/.vim/ycm.py'
-let g:ycm_confirm_extra_conf = 0
+let g:ycm_global_ycm_extra_conf = '~/.vim/ycm.py' " YouCompleteMe default config
+let g:ycm_confirm_extra_conf = 0    " Don't confirm local ycm config files
 
-" Indentation
-set expandtab
-set smarttab
-set shiftwidth=4
-set tabstop=4
-set autoindent
-set smartindent
+"""""""""""""""""""""""""""""
+"       Behaviour           "
+"""""""""""""""""""""""""""""
+set nocompatible                    " Don't behave like vi
+set backspace=2                     " Backspace over more stuff
+set autoread                        " Reload buffers if they've changed
+set smartcase                       " Case sensitive if the search term contains capitals
+set scrolloff=2                     " Start scrolling a few lines from the border
+set visualbell                      " Use a colour blink instead of a sound
+set whichwrap+=<,>,h,l              " Allow the cursor to wrap lines
 
-" Autoread
-set autoread
+"""""""""""""""""""""""""""""
+"       Formatting          "
+"""""""""""""""""""""""""""""
+set tabstop=4                       " Width of the tab character
+set softtabstop=4                   " How many columns the tab key inserts
+set shiftwidth=4                    " Width of 1 indentation level
+set autoindent                      " (todo explain)
+set smartindent                     " Smart C-like autoindenting
+set expandtab                       " Expand tabs into spaces
+set smarttab                        " (todo explain)"
+
+"""""""""""""""""""""""""""""
+"       Interface           "
+"""""""""""""""""""""""""""""
+set number                          " Enable line numbers
+set mouse=a                         " Enable the mouse
+set ruler                           " Display column and line numbers in the bottom right
+set hlsearch                        " Highlight search results
+set incsearch                       " Highlight search results as it is typed
+set splitright                      " Place new horizontal splits to the right
+set splitbelow                      " Place new vertical splits at the bottom
+set colorcolumn=100                 " Highlight column 100
+set t_Co=256                        " Enable a colourful terminal
+set background=dark                 " Set the colour scheme to be dark
+colorscheme gruvbox                 " Set the colour scheme
+syntax on                           " Turn on syntax highlighting
+
+"""""""""""""""""""""""""
+"       Bindings        "
+"""""""""""""""""""""""""
 
 " Unindent
 nmap <S-Tab> <<
 imap <S-Tab> <Esc><<i
 vmap <S-Tab> <gv
 vmap <Tab> >gv
-
-" Line numbers
-set number
-
-" Enable the mouse
-set mouse=a
-
-" Display column and line numbers in the bottom right.
-set ruler
-
-" Only make searches case sensitive if they contain a capital letter
-set smartcase
-set hlsearch
-
-" When splitting, display the new pane to the right of the existing pane for 
-" vertical splits and below the existing pane for horizontal splits.
-set splitright
-set splitbelow
-
-" Put pastemode on a toggle.
-set pastetoggle=<F2>
-
-" Highlight column 100
-set colorcolumn=100
 
 " Copy and paste
 vmap <C-c> "+yi
@@ -150,6 +107,9 @@ map ; :
 " Break line at cursor
 map <C-j> i<CR><Esc>
 
+"""""""""""""""""""""""""""""
+"       Auto Commands       "
+"""""""""""""""""""""""""""""
 if has("autocmd")
     " Have Vim jump to the last position when reopening a file
     autocmd VimResized * :wincmd =
@@ -170,9 +130,3 @@ if has("autocmd")
     autocmd BufNewFile,BufReadPre *.enc setlocal nobackup noswapfile viminfo=|
                 \ setlocal cryptmethod=blowfish 
 endif
-
-" Use internationalised encoding when possible.
-if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
-   set fileencodings=utf-8,latin1
-endif
-
