@@ -1,25 +1,37 @@
+- clean: ['~']
+
 - shell:
-    - mkdir -p ~/.config/fish
     - mkdir -p ~/.ssh
     - mkdir -p ~/.vim
 
 - link:
-    ~/.bashrc: bashrc
-    ~/.config/fish/functions: config/fish/functions
-    ~/.dir_colors: dir_colors
     ~/.tmux.conf: tmux.conf
     ~/.ssh/config: ssh/config
     ~/.vim/ycm.py: vim/ycm.py
     ~/.gvimrc: gvimrc
     ~/.vimrc: vimrc
+    ~/.zshrc: zshrc
 
 - shell:
-    - ["mkdir -p ~/.vim/backup", Creating Vim backup directory]
-    - ["mkdir -p ~/.vim/swap", Creating Vim swap directory]
+    -
+        - "mkdir -p ~/.vim/backup"
+        - Creating Vim backup directory
+    -
+        - "mkdir -p ~/.vim/swap"
+        - Creating Vim swap directory
+    -
+        - "if [ ! -d ~/.oh-my-zsh ]; then git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh; fi"
+        - Setting up oh-my-zsh
     - 
         - "if [ ! -d ~/.vim/bundle/Vundle.vim ]; then git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim; fi"
         - Setting up Vundle
-    - ["echo | vim +PluginInstall +qall", Installing Vim plugins]
+    -
+        - "echo | vim +PluginInstall +qall"
+        - Installing Vim plugins
     - 
         - "if [ ! -f ~/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core* ]; then cd ~/.vim/bundle/YouCompleteMe && ./install.sh --clang-completer; fi"
         - Setting up YouCompleteMe
+    - "mkdir -p ~/.oh-my-zsh/custom/themes"
+
+- link:
+    ~/.oh-my-zsh/custom/themes/davedissian.zsh-theme: davedissian.zsh-theme
