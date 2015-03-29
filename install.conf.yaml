@@ -1,4 +1,5 @@
 - clean: ['~']
+
 - shell:
     - mkdir -p ~/.ssh
     - mkdir -p ~/.vim
@@ -24,3 +25,7 @@
     - 
         - "if [ ! -f ~/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core* ]; then cd ~/.vim/bundle/YouCompleteMe && ./install.sh --clang-completer; fi"
         - Setting up YouCompleteMe
+    - "mkdir -p ~/.oh-my-zsh/custom/themes"
+
+- link:
+    ~/.oh-my-zsh/custom/themes/davedissian.zsh-theme: davedissian.zsh-theme
