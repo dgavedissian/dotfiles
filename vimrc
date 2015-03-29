@@ -51,6 +51,8 @@ let g:ycm_confirm_extra_conf = 0    " Don't confirm local ycm config files
 "       Behaviour           "
 """""""""""""""""""""""""""""
 set nocompatible                    " Don't behave like vi
+set backupdir=~/.vim/backup//       " Set backup directory
+set directory=~/.vim/swap//         " Set swap directory
 set backspace=2                     " Backspace over more stuff
 set autoread                        " Reload buffers if they've changed
 set smartcase                       " Case sensitive if the search term contains capitals
