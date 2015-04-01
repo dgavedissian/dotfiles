@@ -33,3 +33,7 @@ function mkcd {
     mkdir -p "$dir" && cd "$dir"
 }
 
+# zsh local config
+if [ -f $HOME/.zshrc_local ]; then
+    source $HOME/.zshrc_local
+fi
