@@ -8,7 +8,7 @@
     ~/.tmux.conf: tmux.conf
     ~/.ssh/config: ssh/config
     ~/.vim/ycm.py: vim/ycm.py
-    ~/.gvimrc: gvimrc
+    ~/.gitconfig: gitconfig
     ~/.vimrc: vimrc
     ~/.zshrc: zshrc
 
@@ -16,9 +16,6 @@
     -
         - "mkdir -p ~/.vim/backup"
         - Creating Vim backup directory
-    -
-        - "mkdir -p ~/.vim/swap"
-        - Creating Vim swap directory
     -
         - "if [ ! -d ~/.oh-my-zsh ]; then git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh; fi"
         - Setting up oh-my-zsh

@@ -1,4 +1,3 @@
-"""""""""""""""""""""""""
 "       Plugins         "
 """""""""""""""""""""""""
 filetype off
@@ -51,14 +50,24 @@ let g:ycm_confirm_extra_conf = 0    " Don't confirm local ycm config files
 "       Behaviour           "
 """""""""""""""""""""""""""""
 set nocompatible                    " Don't behave like vi
-set backupdir=~/.vim/backup//       " Set backup directory
-set directory=~/.vim/swap//         " Set swap directory
+set backupdir=$HOME/.vim/backup//   " Set backup directory
+set directory=$HOME/.vim/backup//   " Set swap directory
 set backspace=2                     " Backspace over more stuff
 set autoread                        " Reload buffers if they've changed
 set smartcase                       " Case sensitive if the search term contains capitals
 set scrolloff=2                     " Start scrolling a few lines from the border
 set visualbell                      " Use a colour blink instead of a sound
 set whichwrap+=<,>,h,l              " Allow the cursor to wrap lines
+
+"""""""""""""""""""""""""""""
+"       Persistence         "
+"""""""""""""""""""""""""""""
+set hidden                          " don't mark buffers as abandoned if hidden
+set history=1000
+set undofile                        " save undo's after file closes
+set undodir=$HOME/.vim/undo         " where to save undo histories
+set undolevels=1000                 " how many undos
+set undoreload=10000                " number of lines to save for undo
 
 """""""""""""""""""""""""""""
 "       Formatting          "
@@ -82,10 +91,31 @@ set incsearch                       " Highlight search results as it is typed
 set splitright                      " Place new horizontal splits to the right
 set splitbelow                      " Place new vertical splits at the bottom
 set colorcolumn=100                 " Highlight column 100
-set t_Co=256                        " Enable a colourful terminal
 set background=dark                 " Set the colour scheme to be dark
 colorscheme gruvbox                 " Set the colour scheme
 syntax on                           " Turn on syntax highlighting
+
+if has("gui_running")
+    set guioptions-=T               " Remove toolbar
+    set guioptions-=r               " Remove right-hand scroll bar
+    set guioptions-=L               " Remove left-hand scroll bar
+    set columns=140
+    set lines=40
+    if has("gui_gtk2")
+        set guifont=Source\ Code\ Pro\ Medium\ 10
+    elseif has("gui_macvim")
+    elseif has("gui_win32")
+        set guifont=Consolas:h11:cANSI
+    endif
+else
+    set t_Co=256                        " Enable a colourful terminal
+
+    " Use a blinking upright bar cursor in insert mode, and a blinking block in normal mode
+    if &term == 'xterm-256color' || &term == 'screen-256color'
+        let &t_SI = "\<Esc>[5 q"
+        let &t_EI = "\<Esc>[1 q"
+    endif
+endif
 
 """""""""""""""""""""""""
 "       Bindings        "
