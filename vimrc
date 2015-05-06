@@ -110,12 +110,6 @@ if has("gui_running")
     endif
 else
     set t_Co=256                        " Enable a colourful terminal
-
-    " Use a blinking upright bar cursor in insert mode, and a blinking block in normal mode
-    if &term == 'xterm-256color' || &term == 'screen-256color'
-        let &t_SI = "\<Esc>[5 q"
-        let &t_EI = "\<Esc>[1 q"
-    endif
 endif
 
 """""""""""""""""""""""""
