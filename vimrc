@@ -1,5 +1,6 @@
-"       Plugins         "
-"""""""""""""""""""""""""
+"""""""""""""""""""""""""""""
+" Plugins                   "
+"""""""""""""""""""""""""""""
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
@@ -28,7 +29,7 @@ call vundle#end()
 filetype plugin indent on
 
 """""""""""""""""""""""""""""
-"       Plugin Settings     "
+" Plugin Settings           "
 """""""""""""""""""""""""""""
 if !has("gui_running")
    let g:gruvbox_italic=0           " Disable italics in terminal
@@ -60,7 +61,7 @@ set visualbell                      " Use a colour blink instead of a sound
 set whichwrap+=<,>,h,l              " Allow the cursor to wrap lines
 
 """""""""""""""""""""""""""""
-"       Persistence         "
+" Persistence               "
 """""""""""""""""""""""""""""
 set hidden                          " don't mark buffers as abandoned if hidden
 set history=1000
@@ -70,7 +71,7 @@ set undolevels=1000                 " how many undos
 set undoreload=10000                " number of lines to save for undo
 
 """""""""""""""""""""""""""""
-"       Formatting          "
+" Formatting                "
 """""""""""""""""""""""""""""
 set tabstop=4                       " Width of the tab character
 set softtabstop=4                   " How many columns the tab key inserts
@@ -81,7 +82,7 @@ set expandtab                       " Expand tabs into spaces
 set smarttab                        " (todo explain)"
 
 """""""""""""""""""""""""""""
-"       Interface           "
+" Interface                 "
 """""""""""""""""""""""""""""
 set number                          " Enable line numbers
 set mouse=a                         " Enable the mouse
@@ -112,9 +113,9 @@ else
     set t_Co=256                        " Enable a colourful terminal
 endif
 
-"""""""""""""""""""""""""
-"       Bindings        "
-"""""""""""""""""""""""""
+"""""""""""""""""""""""""""""
+" Bindings                  "
+"""""""""""""""""""""""""""""
 
 " Unindent
 nmap <S-Tab> <<
@@ -134,26 +135,33 @@ map ; :
 " Break line at cursor
 map <C-j> i<CR><Esc>
 
-"""""""""""""""""""""""""""""
-"       Auto Commands       "
-"""""""""""""""""""""""""""""
-if has("autocmd")
-    " Have Vim jump to the last position when reopening a file
-    autocmd VimResized * :wincmd =
-    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-          \| exe "normal! g'\"" | endif
+" Have Vim jump to the last position when reopening a file
+autocmd VimResized * :wincmd =
+autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-    " Enable spell check for text files
-    autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en
-    
-    " File specific settings
-    autocmd FileType make setlocal noexpandtab
-    autocmd FileType python setlocal colorcolumn=80
+" Enable spell check for text files
+autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en
 
-    " Pintos
-    autocmd BufNewFile,BufRead ~/Projects/Imperial/pintos_29/*/* setlocal cc=80 sts=2 ts=2 sw=2
+" librocket
+autocmd BufNewFile,BufRead *.rcss set ft=css
+autocmd BufNewFile,BufRead *.rml set ft=html
 
-    " Disable swapfiles in encrypted files
-    autocmd BufNewFile,BufReadPre *.enc setlocal nobackup noswapfile viminfo=|
-                \ setlocal cryptmethod=blowfish 
-endif
+" When using YCM enabled languages, use it instead of ctags
+autocmd FileType c,cpp,python map <C-]> :YcmCompleter GoTo<CR>
+
+" Always use tabs in makefiles
+autocmd FileType make setlocal noexpandtab
+
+" Follow python PEP8
+autocmd FileType python setlocal colorcolumn=80
+
+" Disable swapfiles in encrypted files
+autocmd BufNewFile,BufReadPre *.enc setlocal nobackup noswapfile viminfo=|
+            \ setlocal cryptmethod=blowfish 
+
+"""""""""""""""""""""""""""""""""
+" Project Specific Settings     "
+"""""""""""""""""""""""""""""""""
+" Pintos
+autocmd BufNewFile,BufRead ~/Projects/Imperial/pintos_29/*/* setlocal cc=80 sts=2 ts=2 sw=2
+
