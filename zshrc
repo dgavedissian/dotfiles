@@ -1,5 +1,6 @@
 # oh-my-zsh config
 export ZSH=$HOME/.oh-my-zsh
+DISABLE_UPDATE_PROMPT=true
 ZSH_THEME="davedissian"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
