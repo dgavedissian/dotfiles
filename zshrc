@@ -8,12 +8,23 @@ source $ZSH/oh-my-zsh.sh
 # zsh settings 
 
 # Editor
-export EDITOR='vim'
+export EDITOR=vim
 export VISUAL=$EDITOR
 
 # Dir colours
 if ls --color -d . >/dev/null 2>&1; then
     eval `dircolors $HOME/.dotfiles/dir_colors`
+fi
+
+# Enable Virtualenv Wrapper
+export WORKON_HOME="$HOME/.virtualenvs"
+export PROJECT_HOME="$HOME/Projects"
+if [ -f /usr/bin/virtualenvwrapper.sh ]; then
+    source /usr/bin/virtualenvwrapper.sh
+elif [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+elif [ -f $HOME/.local/bin/virtualenvwrapper.sh ]; then
+    source $HOME/.local/bin/virtualenvwrapper.sh
 fi
 
 # Aliases
