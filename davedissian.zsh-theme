@@ -1,7 +1,9 @@
-# ZSH Theme - Preview: http://img.skitch.com/20091113-qqtd3j8xinysujg5ugrsbr7x1y.jpg
 local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 
-PROMPT=$'%{$fg[yellow]%}%n%{$reset_color%}@%{$fg[green]%}%m %{$fg[blue]%}%3~ $(git_prompt_info)%{$reset_color%}
+__time="$fg[blue]%D{%L:%M}$reset_color"
+__userhost="%{$fg[yellow]%}%n%{$reset_color%}@%{$fg[green]%}%m$reset_color"
+__path="%{$fg[blue]%}%3~"
+PROMPT=' $__time | $__userhost | $__path $(git_prompt_info)$reset_color
 %B»%b '
 RPS1="${return_code}"
 
