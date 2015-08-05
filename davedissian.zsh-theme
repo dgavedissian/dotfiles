@@ -1,6 +1,6 @@
 local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 
-__time="$fg[blue]%D{%L:%M}$reset_color"
+__time="$fg[blue]%D{%K:%M}$reset_color"
 __userhost="%{$fg[yellow]%}%n%{$reset_color%}@%{$fg[green]%}%m$reset_color"
 __path="%{$fg[blue]%}%3~"
 PROMPT=' $__time | $__userhost | $__path $(git_prompt_info)$reset_color
