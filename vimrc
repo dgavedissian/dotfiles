@@ -103,7 +103,7 @@ if has("gui_running")
     set columns=140
     set lines=40
     if has("gui_gtk2")
-        set guifont=Source\ Code\ Pro\ Medium\ 10
+        set guifont=Hack\ 10
     elseif has("gui_macvim")
         set guifont=Monaco:h12
     elseif has("gui_win32")
