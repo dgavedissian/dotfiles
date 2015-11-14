@@ -15,7 +15,6 @@ Plugin 'scrooloose/nerdtree'        " File system explorer
 Plugin 'jistr/vim-nerdtree-tabs'    " Better tab support for NERDTree
 Plugin 'terryma/vim-multiple-cursors' " Sublime-like multiple cursors
 Plugin 'kien/ctrlp.vim'             " Fuzzy file/string searching
-Plugin 'Lokaltog/vim-easymotion'    " (don't really use this)
 Plugin 'Raimondi/delimitMate'       " Match opening delimiters with closing delimiters
 Plugin 'octol/vim-cpp-enhanced-highlight' " Enhanced C++ syntax
 Plugin 'drmikehenry/vim-headerguard' " Insert C/C++ header guards with a command
