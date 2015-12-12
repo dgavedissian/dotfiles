@@ -4,7 +4,7 @@ Host trserver
 
 Host home
     HostName davedissian.dtdns.net
-    User pi
+    User dga
 
 Host doc
     HostName shell2.doc.ic.ac.uk
