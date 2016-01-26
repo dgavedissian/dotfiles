@@ -5,24 +5,25 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'          " Vundle
-Plugin 'tpope/vim-fugitive'         " Git commands from vim
-Plugin 'airblade/vim-gitgutter'     " Git status in the gutter
-Plugin 'bling/vim-airline'          " Status bar
-Plugin 'Valloric/YouCompleteMe'     " Autocomplete for C/C++/Python
-Plugin 'morhetz/gruvbox'            " Colour Scheme
-Plugin 'scrooloose/nerdtree'        " File system explorer
-Plugin 'jistr/vim-nerdtree-tabs'    " Better tab support for NERDTree
-Plugin 'terryma/vim-multiple-cursors' " Sublime-like multiple cursors
-Plugin 'kien/ctrlp.vim'             " Fuzzy file/string searching
-Plugin 'Raimondi/delimitMate'       " Match opening delimiters with closing delimiters
-Plugin 'octol/vim-cpp-enhanced-highlight' " Enhanced C++ syntax
-Plugin 'drmikehenry/vim-headerguard' " Insert C/C++ header guards with a command
-Plugin 'tikhomirov/vim-glsl'        " GLSL syntax highlighting
-Plugin 'jmcantrell/vim-virtualenv'  " Virtualenv from vim
-Plugin 'wting/rust.vim'             " Rust Syntax
-Plugin 'fatih/vim-go'               " Go syntax and access to go tools from vim
-Plugin 'dag/vim2hs'                 " Haskell syntax with folding
+Plugin 'gmarik/Vundle.vim'                  " Vundle
+Plugin 'joshdick/onedark.vim'               " Colour Scheme
+Plugin 'tpope/vim-fugitive'                 " Git commands from vim
+Plugin 'airblade/vim-gitgutter'             " Git status in the gutter
+Plugin 'bling/vim-airline'                  " Status bar
+Plugin 'Valloric/YouCompleteMe'             " Autocomplete for C/C++/Python
+Plugin 'scrooloose/nerdtree'                " File system explorer
+Plugin 'jistr/vim-nerdtree-tabs'            " Better tab support for NERDTree
+Plugin 'terryma/vim-multiple-cursors'       " Sublime-like multiple cursors
+Plugin 'kien/ctrlp.vim'                     " Fuzzy file/string searching
+Plugin 'Raimondi/delimitMate'               " Match opening delimiters with closing delimiters
+Plugin 'octol/vim-cpp-enhanced-highlight'   " Enhanced C++ syntax
+Plugin 'drmikehenry/vim-headerguard'        " Insert C/C++ header guards with a command
+Plugin 'tikhomirov/vim-glsl'                " GLSL syntax highlighting
+Plugin 'jmcantrell/vim-virtualenv'          " Virtualenv from vim
+Plugin 'wting/rust.vim'                     " Rust Syntax
+Plugin 'fatih/vim-go'                       " Go syntax and access to go tools from vim
+Plugin 'dag/vim2hs'                         " Haskell syntax with folding
+Plugin 'editorconfig/editorconfig-vim'      " Editor Config
 
 call vundle#end()
 filetype plugin indent on
@@ -92,7 +93,7 @@ set splitright                      " Place new horizontal splits to the right
 set splitbelow                      " Place new vertical splits at the bottom
 set colorcolumn=100                 " Highlight column 100
 set background=dark                 " Set the colour scheme to be dark
-colorscheme gruvbox                 " Set the colour scheme
+colorscheme onedark                 " Set the colour scheme
 syntax on                           " Turn on syntax highlighting
 
 if has("gui_running")
