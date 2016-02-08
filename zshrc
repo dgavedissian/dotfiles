@@ -45,6 +45,15 @@ function mkcd {
     mkdir -p "$dir" && cd "$dir"
 }
 
+function aur_install {
+    pushd /tmp
+    curl -L -O https://aur.archlinux.org/cgit/aur.git/snapshot/$1.tar.gz &&
+    tar xf $1.tar.gz &&
+    cd $1 &&
+    makepkg -sri
+    popd
+}
+
 # zsh local config
 if [ -f $HOME/.zshrc.local ]; then
     source $HOME/.zshrc.local
