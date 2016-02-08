@@ -14,20 +14,20 @@ compilation_database_folder = ''
 flags = [
     '-Wall',
     '-std=c++11',
-    '-stdlib=libc++',
     '-x', 'c++',
     '-I', '.',
     '-isystem', '/usr/include/c++/4.8',
     '-isystem', '/usr/lib/c++/4.8',
     '-isystem', '/usr/include',
     '-isystem', '/usr/local/include',
-    '-isystem', '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1',
-    '-isystem', '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include'
 ] 
 
 if sys.platform.startswith('darwin'):
-    flags += ['-isystem', '-stdlib=libc++']
-
+    flags += [
+        '-stdlib=libc++',
+        '-isystem', '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1',
+        '-isystem', '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include'
+    ]
 
 if compilation_database_folder:
     database = ycm_core.CompilationDatabase(compilation_database_folder)
