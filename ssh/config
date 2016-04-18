@@ -1,10 +1,6 @@
-Host trserver
-    HostName transcendent.basedynamics.net
-    User dga
-
 Host home
-    HostName davedissian.dtdns.net
-    User dga
+    HostName home.davedissian.com
+    User root
 
 Host doc
     HostName shell2.doc.ic.ac.uk

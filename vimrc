@@ -91,6 +91,7 @@ set splitright                      " Place new horizontal splits to the right
 set splitbelow                      " Place new vertical splits at the bottom
 set colorcolumn=100                 " Highlight column 100
 set background=dark                 " Set the colour scheme to be dark
+set nofoldenable                    " Disable folding
 colorscheme onedark                 " Set the colour scheme
 syntax on                           " Turn on syntax highlighting
 

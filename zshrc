@@ -2,7 +2,7 @@
 export ZSH=$HOME/.oh-my-zsh
 DISABLE_UPDATE_PROMPT=true
 ZSH_THEME="davedissian"
-plugins=(git)
+plugins=(git brew)
 source $ZSH/oh-my-zsh.sh
 
 # zsh settings 
@@ -15,6 +15,9 @@ export VISUAL=$EDITOR
 if ls --color -d . >/dev/null 2>&1; then
     eval `dircolors $HOME/.dotfiles/dir_colors`
 fi
+
+# Go
+export GOPATH="$HOME/.go"
 
 # Enable Virtualenv Wrapper
 export WORKON_HOME="$HOME/.virtualenvs"
