@@ -158,9 +158,3 @@ autocmd FileType python setlocal colorcolumn=80
 autocmd BufNewFile,BufReadPre *.enc setlocal nobackup noswapfile viminfo=|
             \ setlocal cryptmethod=blowfish 
 
-"""""""""""""""""""""""""""""""""
-" Project Specific Settings     "
-"""""""""""""""""""""""""""""""""
-" Pintos
-autocmd BufNewFile,BufRead ~/Projects/Imperial/pintos_29/*/* setlocal cc=80 sts=2 ts=2 sw=2
-
