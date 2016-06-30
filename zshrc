@@ -16,12 +16,15 @@ if ls --color -d . >/dev/null 2>&1; then
     eval `dircolors $HOME/.dotfiles/dir_colors`
 fi
 
+# Projects
+export PROJECTS_HOME="$HOME/Work/Projects"
+
 # Go
-export GOPATH="$HOME/.go"
+export GOPATH="$PROJECTS_HOME/go-workspace"
 
 # Enable Virtualenv Wrapper
 export WORKON_HOME="$HOME/.virtualenvs"
-export PROJECT_HOME="$HOME/Projects"
+export PROJECT_HOME=$PROJECTS_HOME
 if [ -f /usr/bin/virtualenvwrapper.sh ]; then
     source /usr/bin/virtualenvwrapper.sh
 elif [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
