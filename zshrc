@@ -47,6 +47,7 @@ alias which_doc_shell="for i in {1..4}; do ssh da913@shell\$i.doc.ic.ac.uk 'echo
 if hash xdg-open 2>/dev/null; then
   alias open="xdg-open"
 fi
+alias pacman="yaourt"
 
 # Functions
 function mkcd {
