@@ -7,6 +7,9 @@ source $ZSH/oh-my-zsh.sh
 
 # zsh settings 
 
+# Cargo
+export PATH=$PATH:$HOME/.cargo/bin
+
 # Editor
 export EDITOR=vim
 export VISUAL=$EDITOR
