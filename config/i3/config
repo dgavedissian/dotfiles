@@ -1,6 +1,6 @@
 set $mod Mod1
 
-font pango: Noto Sans 10
+font pango:Noto Sans 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -138,6 +138,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 # bar
 bar {
+        font pango:Inconsolata-g 10
         status_command i3blocks -c ~/.dotfiles/i3blocks.conf
         position top
         colors {                
