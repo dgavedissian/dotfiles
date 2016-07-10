@@ -190,3 +190,7 @@ exec_always compton -b
 
 # Desktop Environment
 exec_always feh --bg-scale ~/.dotfiles/wallpapers/derp3.png
+
+# NetworkManager Applet
+exec --no-startup-id nm-applet
+
