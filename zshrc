@@ -5,8 +5,6 @@ ZSH_THEME="davedissian"
 plugins=(git brew osx rust cargo)
 source $ZSH/oh-my-zsh.sh
 
-# zsh settings 
-
 # Cargo
 export PATH=$PATH:$HOME/.cargo/bin
 
@@ -23,7 +21,9 @@ fi
 export PROJECTS_HOME="$HOME/Work/Projects"
 
 # Go
-export GOPATH="$PROJECTS_HOME/go-workspace"
+# The GOPATH is set to where we want global go libraries to be installed. Projects should append
+# their src path to the GOPATH.
+export GOPATH="$HOME/.go"
 
 # Enable Virtualenv Wrapper
 export WORKON_HOME="$HOME/.virtualenvs"
