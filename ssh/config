@@ -2,6 +2,9 @@ Host home
     HostName home.davedissian.com
     User root
 
+Host *.home
+    ProxyCommand ssh root@86.168.80.143 -W %h:%p
+
 Host doc
     HostName shell2.doc.ic.ac.uk
     User da913
