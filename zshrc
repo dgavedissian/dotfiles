@@ -22,8 +22,9 @@ export PROJECTS_HOME="$HOME/Work/Projects"
 
 # Go
 # The GOPATH is set to where we want global go libraries to be installed. Projects should append
-# their src path to the GOPATH.
+# their src path to the GOPATH
 export GOPATH="$HOME/.go"
+export PATH="$GOPATH/bin:$PATH"
 
 # Enable Virtualenv Wrapper
 export WORKON_HOME="$HOME/.virtualenvs"
