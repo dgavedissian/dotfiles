@@ -8,10 +8,10 @@
     ~/.tmux.conf: tmux.conf
     ~/.ssh/config: ssh/config
     ~/.vim/ycm.py: vim/ycm.py
+    ~/.gdbinit: gdbinit
     ~/.gitconfig: gitconfig
     ~/.vimrc: vimrc
     ~/.zshrc: zshrc
-    ~/.compton.conf: compton.conf
     ~/.config/redshift.conf: config/redshift.conf
 
 - shell:

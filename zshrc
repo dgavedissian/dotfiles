@@ -37,6 +37,9 @@ elif [ -f $HOME/.local/bin/virtualenvwrapper.sh ]; then
     source $HOME/.local/bin/virtualenvwrapper.sh
 fi
 
+# direnv
+eval "$(direnv hook zsh)"
+
 # Aliases
 alias pd="pushd"
 alias la="ls -lhA"

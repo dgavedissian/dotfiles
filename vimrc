@@ -7,7 +7,6 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'                  " Vundle
 Plugin 'joshdick/onedark.vim'               " Colour Scheme
-Plugin 'joshdick/airline-onedark.vim'       " Powerline Colour Scheme
 Plugin 'tpope/vim-fugitive'                 " Git commands from vim
 Plugin 'airblade/vim-gitgutter'             " Git status in the gutter
 Plugin 'vim-airline/vim-airline'            " Status bar
