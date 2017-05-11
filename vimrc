@@ -10,7 +10,9 @@ Plugin 'joshdick/onedark.vim'               " Colour Scheme
 Plugin 'tpope/vim-fugitive'                 " Git commands from vim
 Plugin 'airblade/vim-gitgutter'             " Git status in the gutter
 Plugin 'vim-airline/vim-airline'            " Status bar
-Plugin 'Valloric/YouCompleteMe'             " Autocomplete for C/C++/Python
+if !has("win32")
+    Plugin 'Valloric/YouCompleteMe'         " Autocomplete for C/C++/Python
+endif
 Plugin 'scrooloose/nerdtree'                " File system explorer
 Plugin 'jistr/vim-nerdtree-tabs'            " Better tab support for NERDTree
 Plugin 'terryma/vim-multiple-cursors'       " Sublime-like multiple cursors
@@ -155,5 +157,5 @@ autocmd FileType python setlocal colorcolumn=80
 
 " Disable swapfiles in encrypted files
 autocmd BufNewFile,BufReadPre *.enc setlocal nobackup noswapfile viminfo=|
-            \ setlocal cryptmethod=blowfish 
+            \ setlocal cryptmethod=blowfish
 

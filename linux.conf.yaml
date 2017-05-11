@@ -1,0 +1,10 @@
+- shell:
+    - mkdir -p ~/.config/i3
+    - mkdir -p ~/.config/termite
+- link:
+    ~/.gdbinit: gdbinit
+    ~/.compton.conf: compton.conf
+    ~/.config/i3/config: config/i3/config
+    ~/.config/termite/config: config/termite/config
+    ~/.config/redshift.conf: config/redshift.conf
+    ~/.Xresources: Xresources
