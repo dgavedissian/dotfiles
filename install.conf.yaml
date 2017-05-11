@@ -3,6 +3,7 @@
 - shell:
     - mkdir -p ~/.ssh
     - mkdir -p ~/.vim
+    - mkdir -p ~/.config/i3
 
 - link:
     ~/.tmux.conf: tmux.conf
@@ -12,7 +13,11 @@
     ~/.gitconfig: gitconfig
     ~/.vimrc: vimrc
     ~/.zshrc: zshrc
+    ~/.compton.conf: compton.conf
+    ~/.config/i3/config: config/i3/config
+    ~/.config/termite/config: config/termite/config
     ~/.config/redshift.conf: config/redshift.conf
+    ~/.Xresources: Xresources
 
 - shell:
     -
