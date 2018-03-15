@@ -1,5 +1,6 @@
 Host pfh
     HostName pfh.dga.me.uk
+    Port 22000
     User root
 
 Host *.pfh
@@ -7,6 +8,7 @@ Host *.pfh
 
 Host home
     HostName home.dga.me.uk
+    Port 22000
     User dga
 
 Host *.home
