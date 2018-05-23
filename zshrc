@@ -1,4 +1,5 @@
 # oh-my-zsh config
+export ZSH_DISABLE_COMPFIX=true
 export ZSH=$HOME/.oh-my-zsh
 DISABLE_UPDATE_PROMPT=true
 ZSH_THEME="davedissian"
