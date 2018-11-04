@@ -8,3 +8,5 @@
     ~/.config/termite/config: config/termite/config
     ~/.config/redshift.conf: config/redshift.conf
     ~/.Xresources: Xresources
+- shell:
+    - 'make -sC i3blocks-contrib/bandwidth2'

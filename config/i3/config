@@ -155,9 +155,10 @@ bindsym Print exec --no-startup-id escrotum
 bindsym Shift+Print exec --no-startup-id escrotum -s -C
 
 # Gaps
-#gaps inner 10
-#gaps outer 0
-hide_edge_borders both
+gaps inner 10
+gaps outer 0
+smart_gaps on
+hide_edge_borders smart
 for_window [class="^.*"] border pixel 0
 
 ####################
@@ -179,14 +180,11 @@ bindsym $mod-o exec --no-startup-id ~/.dotfiles/scripts/switch-output.sh
 ####################
 # Startup Applications
 
-# Network Manager Applet
-exec --no-startup-id nm-applet
-
 # Compositor
 exec_always compton -b
 
 # Desktop Environment
-exec_always feh --bg-scale ~/.dotfiles/wallpapers/derp3.png
+exec_always feh --bg-scale ~/.dotfiles/wallpapers/wallup.jpg
 
 # NetworkManager Applet
 exec --no-startup-id nm-applet
