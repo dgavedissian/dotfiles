@@ -10,7 +10,7 @@ Plugin 'joshdick/onedark.vim'               " Colour Scheme
 Plugin 'tpope/vim-fugitive'                 " Git commands from vim
 Plugin 'airblade/vim-gitgutter'             " Git status in the gutter
 Plugin 'vim-airline/vim-airline'            " Status bar
-if !has("win32")
+if !has("win32") && !has("win32unix")
     Plugin 'Valloric/YouCompleteMe'         " Autocomplete for C/C++/Python
 endif
 Plugin 'scrooloose/nerdtree'                " File system explorer
