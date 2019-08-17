@@ -1,6 +1,6 @@
 [user]
 	name = David Avedissian
-	email = git@dga.me.uk
+	email = git@dga.dev
 [push]
 	default = simple
 [merge]
