@@ -10,22 +10,11 @@ Plugin 'joshdick/onedark.vim'               " Colour Scheme
 Plugin 'tpope/vim-fugitive'                 " Git commands from vim
 Plugin 'airblade/vim-gitgutter'             " Git status in the gutter
 Plugin 'vim-airline/vim-airline'            " Status bar
-if !has("win32") && !has("win32unix")
-    Plugin 'Valloric/YouCompleteMe'         " Autocomplete for C/C++/Python
-endif
 Plugin 'scrooloose/nerdtree'                " File system explorer
 Plugin 'jistr/vim-nerdtree-tabs'            " Better tab support for NERDTree
 Plugin 'terryma/vim-multiple-cursors'       " Sublime-like multiple cursors
 Plugin 'kien/ctrlp.vim'                     " Fuzzy file/string searching
 Plugin 'Raimondi/delimitMate'               " Match opening delimiters with closing delimiters
-
-Plugin 'octol/vim-cpp-enhanced-highlight'   " Enhanced C++ syntax
-Plugin 'drmikehenry/vim-headerguard'        " Insert C/C++ header guards with a command
-Plugin 'tikhomirov/vim-glsl'                " GLSL syntax highlighting
-Plugin 'jmcantrell/vim-virtualenv'          " Virtualenv from vim
-Plugin 'wting/rust.vim'                     " Rust Syntax
-Plugin 'fatih/vim-go'                       " Go syntax and access to go tools from vim
-Plugin 'dag/vim2hs'                         " Haskell syntax with folding
 
 call vundle#end()
 filetype plugin indent on
@@ -33,17 +22,6 @@ filetype plugin indent on
 """""""""""""""""""""""""""""
 " Plugin Settings           "
 """""""""""""""""""""""""""""
-let g:cpp_class_scope_highlight = 1 " Highlight class scopes
-
-let g:go_fmt_fail_silently = 1      " Don't display an error when gofmt fails
-let g:go_fmt_command = "goimports"  " Use goimports to resolve imports automatically
-let g:go_highlight_functions = 1    " Highlight functions
-let g:go_highlight_methods = 1      " Highlight methods
-let g:go_highlight_structs = 1      " Highlight structs
-
-let g:ycm_global_ycm_extra_conf = '~/.vim/ycm.py' " YouCompleteMe default config
-let g:ycm_confirm_extra_conf = 0    " Don't confirm local ycm config files
-
 let g:airline_theme='onedark'       " Use the correct powerline theme
 
 """""""""""""""""""""""""""""
