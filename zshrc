@@ -63,8 +63,8 @@ fi
 if hash xdg-open 2>/dev/null; then
     alias open="xdg-open"
 fi
-if hash aurman 2>/dev/null; then
-    alias pacman="aurman"
+if hash yay 2>/dev/null; then
+    alias pacman="yay"
 fi
 
 # Functions

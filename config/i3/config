@@ -180,6 +180,8 @@ bindsym $mod-o exec --no-startup-id ~/.dotfiles/scripts/switch-output.sh
 ####################
 # Startup Applications
 
+exec_always --no-startup-id xrdb -load ~/.Xresources 
+
 # Compositor
 exec_always compton -b
 

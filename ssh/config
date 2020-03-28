@@ -1,5 +1,5 @@
 Host pfh
-    HostName pfh.dga.me.uk
+    HostName pfh.dga.uk
     Port 22000
     User root
 
@@ -7,7 +7,7 @@ Host *.pfh
     ProxyCommand ssh pfh -W %h:%p
 
 Host home
-    HostName home.dga.me.uk
+    HostName home.dga.uk
     Port 22000
     User dga
 
