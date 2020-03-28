@@ -23,9 +23,6 @@
     -
         - "echo | vim +PluginInstall +qall"
         - Installing Vim plugins
-    -
-        - "if [ ! -f ~/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core* ]; then cd ~/.vim/bundle/YouCompleteMe && ./install.py --clang-completer --gocode-completer --racer-completer; fi"
-        - Setting up YouCompleteMe
     - "mkdir -p ~/.oh-my-zsh/custom/themes"
 - link:
     ~/.oh-my-zsh/custom/themes/davedissian.zsh-theme: davedissian.zsh-theme
