@@ -1,12 +1,11 @@
 - shell:
     - mkdir -p ~/.config/i3
     - mkdir -p ~/.config/termite
+    - 'make -sC i3blocks-contrib/bandwidth2'
 - link:
-    ~/.gdbinit: gdbinit
+    ~/.gdbinit: gdb-dashboard/.gdbinit
     ~/.compton.conf: compton.conf
     ~/.config/i3/config: config/i3/config
     ~/.config/termite/config: config/termite/config
     ~/.config/redshift.conf: config/redshift.conf
     ~/.Xresources: Xresources
-- shell:
-    - 'make -sC i3blocks-contrib/bandwidth2'

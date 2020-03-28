@@ -3,6 +3,8 @@
     - mkdir -p ~/.ssh
     - mkdir -p ~/.vim
     - mkdir -p ~/.config
+    - "git submodule update --init --recursive"
+    - touch ~/.zshrc.local
 - link:
     ~/.tmux.conf: tmux.conf
     ~/.ssh/config: ssh/config
@@ -25,4 +27,4 @@
         - Installing Vim plugins
     - "mkdir -p ~/.oh-my-zsh/custom/themes"
 - link:
-    ~/.oh-my-zsh/custom/themes/davedissian.zsh-theme: davedissian.zsh-theme
+    ~/.oh-my-zsh/custom/themes/dga.zsh-theme: dga.zsh-theme
