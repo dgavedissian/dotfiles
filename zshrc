@@ -1,9 +1,14 @@
+# Platform detection: https://stackoverflow.com/a/8597411
+
 # oh-my-zsh config
 export ZSH_DISABLE_COMPFIX=true
 export ZSH=$HOME/.oh-my-zsh
 DISABLE_UPDATE_PROMPT=true
-ZSH_THEME="davedissian"
-plugins=(git brew osx rust cargo)
+ZSH_THEME="dga"
+plugins=(git rust cargo)
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    plugins+=(brew osx)
+fi
 source $ZSH/oh-my-zsh.sh
 
 # Cargo
@@ -17,9 +22,6 @@ export VISUAL=$EDITOR
 if ls --color -d . >/dev/null 2>&1; then
     eval `dircolors $HOME/.dotfiles/dir_colors`
 fi
-
-# Projects
-export PROJECTS_HOME="$HOME/Projects"
 
 # Native symlinks on Windows
 if [[ "$(uname -s)" =~ MSYS ]]; then
@@ -44,7 +46,9 @@ elif [ -f $HOME/.local/bin/virtualenvwrapper.sh ]; then
 fi
 
 # direnv
-eval "$(direnv hook zsh)"
+if hash direnv 2>/dev/null; then
+    eval "$(direnv hook zsh)"
+fi
 
 # Aliases
 alias pd="pushd"
@@ -56,7 +60,6 @@ alias ll="ls -lh"
 alias gl="git log --graph --all"
 alias gb="git branch --all"
 alias grep="grep --color=auto"
-alias which_doc_shell="for i in {1..4}; do ssh da913@shell\$i.doc.ic.ac.uk 'echo -n \"\`hostname -s\`: \" && who | wc -l'; done"
 if [[ "$(uname -s)" =~ MSYS ]]; then
     alias open="start"
 fi
