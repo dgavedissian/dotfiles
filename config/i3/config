@@ -183,7 +183,7 @@ bindsym $mod-o exec --no-startup-id ~/.dotfiles/scripts/switch-output.sh
 exec_always --no-startup-id xrdb -load ~/.Xresources 
 
 # Compositor
-exec_always compton -b
+exec_always picom -b
 
 # Desktop Environment
 exec_always feh --bg-scale ~/.dotfiles/wallpapers/wallup.jpg
