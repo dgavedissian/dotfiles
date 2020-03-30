@@ -1,12 +1,14 @@
 - shell:
     - mkdir -p ~/.config/i3
-    - mkdir -p ~/.config/termite
     - mkdir -p ~/.config/picom
+    - mkdir -p ~/.config/rofi
+    - mkdir -p ~/.config/termite
     - "make -sC i3blocks-contrib/bandwidth2"
 - link:
     ~/.config/i3/config: config/i3/config
-    ~/.config/termite/config: config/termite/config
     ~/.config/picom/picom.conf: config/picom/picom.conf
+    ~/.config/rofi/sidestyle.rasi: config/rofi/sidestyle.rasi
+    ~/.config/termite/config: config/termite/config
     ~/.config/redshift.conf: config/redshift.conf
     ~/.gdbinit: gdb-dashboard/.gdbinit
     ~/.Xresources: Xresources

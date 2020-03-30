@@ -6,10 +6,10 @@
     - "git submodule update --init --recursive"
     - touch ~/.zshrc.local
 - link:
-    ~/.tmux.conf: tmux.conf
     ~/.ssh/config: ssh/config
     ~/.vim/ycm.py: vim/ycm.py
     ~/.gitconfig: gitconfig
+    ~/.tmux.conf: tmux.conf
     ~/.vimrc: vimrc
     ~/.zshrc: zshrc
 - shell:

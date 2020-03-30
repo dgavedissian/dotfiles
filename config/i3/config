@@ -155,9 +155,9 @@ bindsym Print exec --no-startup-id escrotum
 bindsym Shift+Print exec --no-startup-id escrotum -s -C
 
 # Gaps
-gaps inner 10
+gaps inner 15
 gaps outer 0
-smart_gaps on
+#smart_gaps on
 hide_edge_borders smart
 for_window [class="^.*"] border pixel 0
 
@@ -165,9 +165,9 @@ for_window [class="^.*"] border pixel 0
 # Key Bindings
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pulseaudio-ctl up
-bindsym XF86AudioLowerVolume exec --no-startup-id pulseaudio-ctl down
-bindsym XF86AudioMute exec --no-startup-id pulseaudio-ctl mute
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
 
 # Control playback
 bindsym $mod+p exec --no-startup-id playerctl play-pause
@@ -183,10 +183,10 @@ bindsym $mod-o exec --no-startup-id ~/.dotfiles/scripts/switch-output.sh
 exec_always --no-startup-id xrdb -load ~/.Xresources 
 
 # Compositor
-exec_always picom -b
+exec_always picom -b --experimental-backends
 
 # Desktop Environment
-exec_always feh --bg-scale ~/.dotfiles/wallpapers/wallup.jpg
+exec_always feh --bg-scale ~/.dotfiles/wallpapers/world-in-collision.jpg
 
 # NetworkManager Applet
 exec --no-startup-id nm-applet

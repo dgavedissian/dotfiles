@@ -1,11 +1,12 @@
-local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
+ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg[green]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CLEAN=""
 
-__time="$fg[blue]%D{%K:%M}$reset_color"
-__userhost="%{$fg[yellow]%}%n%{$reset_color%}@%{$fg[green]%}%m$reset_color"
-__path="%{$fg[blue]%}%3~%{$reset_color%}"
-PROMPT=' $__time | $__userhost: $__path $(git_prompt_info)
-%{$reset_color%}λ '
-RPS1="${return_code}"
+function prompt_char {
+	if [ $UID -eq 0 ]; then echo "%{$fg[red]%}#%{$reset_color%}"; else echo λ; fi
+}
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}‹"
-ZSH_THEME_GIT_PROMPT_SUFFIX="›"
+PROMPT='%(?, ,%{$fg[red]%}FAIL: $?%{$reset_color%}
+) %{$fg[blue]%}%T%{$reset_color%} | %{$fg[yellow]%}%n%{$reset_color%}@%{$fg[green]%}%m%{$reset_color%}:%{$fg[blue]%}%~%{$reset_color%}$(git_prompt_info)
+$(prompt_char) '
+RPROMPT=''
