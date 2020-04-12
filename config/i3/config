@@ -180,6 +180,7 @@ bindsym $mod-o exec --no-startup-id ~/.dotfiles/scripts/switch-output.sh
 ####################
 # Startup Applications
 
+exec xrandr --dpi 192
 exec_always --no-startup-id xrdb -load ~/.Xresources 
 
 # Compositor
