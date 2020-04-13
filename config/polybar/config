@@ -1,0 +1,274 @@
+[bar/top]
+monitor = ${env:MONITOR:}
+
+width = 100%
+height = ${env:POLYBAR_OVERRIDE_HEIGHT:60}
+offset-x = 0
+offset-y = 0
+bottom = false
+dpi = -1
+border-top-size = 0
+border-bottom-size = 3
+border-right-size = 0
+border-left-size = 0
+
+background = #4a000000
+foreground = #eee
+border-color = #4a888888
+
+underline-size = 2
+underline-color = #eee
+
+spacing = 0
+padding-left = 5
+padding-right = 5
+module-margin-left = 3
+module-margin-right = 3
+
+font-0 = "Noto Sans:pixelsize=10;0"
+font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=12;3"
+font-2 = "Unifont:size=10:style=Medium;0"
+font-3 = "Material Icons:pixelsize=12;3"
+
+modules-left = i3
+modules-center = date
+modules-right = cpu temperature memory filesystem network pulseaudio
+
+tray-position = right
+tray-padding = 0
+tray-background = #66333333
+tray-maxsize = 1000
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+; MODULES
+
+[module/i3]
+type = internal/i3
+
+pin-workspaces = true
+strip-wsnumbers = true
+index-sort = true
+enable-click = true
+enable-scroll = true
+wrapping-scroll = true
+reverse-scroll = true
+fuzzy-match = true
+
+label-focused = %index%
+label-focused-foreground = #ffffff
+label-focused-background = #883f3f3f
+label-focused-underline = #777777
+label-focused-padding = 5
+
+label-unfocused = %index%
+label-unfocused-padding = 5
+
+label-visible = %index%
+label-visible-foreground = #ffffff
+label-visible-background = #883f3f3f
+label-visible-underline = #777777
+label-visible-padding = 5
+
+label-urgent = %index%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-padding = 5
+
+label-separator = |
+label-separator-padding = 2
+label-separator-foreground = #ffb52a
+
+[module/date]
+type = internal/date
+interval = 1.0
+date = %a %b %d |
+time = %H:%M:%S
+label = %date% %time%
+format = <label>
+
+[module/padding]
+type = custom/text
+content = 	 
+content-foreground = #00000000
+content-background = #55000000
+
+[module/battery]
+type = internal/battery
+
+full-at = 99
+
+battery = BAT0
+adapter = AC0
+
+poll-interval = 5
+
+format-charging = <animation-charging>  <label-charging>
+format-discharging = <ramp-capacity>  <label-discharging>
+format-full = <ramp-capacity>  <label-full>
+label-charging = %percentage%
+label-discharging = %percentage%
+label-full = %percentage%
+format-charging-padding = 3
+format-discharging-padding = 3
+format-full-padding = 3
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+[module/backlight]
+type = internal/backlight
+
+card = intel_backlight
+enable-scroll = true
+
+format = <ramp> <label>
+label = %percentage%
+
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+
+[module/volume]
+type = internal/volume
+
+format-volume = <ramp-volume>  <label-volume>
+format-muted = <label-muted>
+label-volume = %percentage%
+label-muted =   muted
+label-muted-foreground = #aaa
+format-volume-padding = 3
+format-muted-padding = 3
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-headphones-0 = 
+
+[module/pulseaudio]
+type = internal/pulseaudio
+use-ui-max = true
+interval = 5
+label-volume =  %percentage%%
+click-right = pavucontrol &
+
+[module/spotify]
+type = custom/script
+
+exec = /home/gamehelp16/Documents/np
+interval = 1
+
+format = <label>   
+;format-background = #dd00c6e0
+;format-foreground = #fff
+;format-padding = 4
+
+label = %output%
+
+[module/filesystem]
+type = internal/fs
+mount-0 = /
+;mount-1 = /home
+interval = 10
+fixed-values = true
+spacing = 4
+label-mounted =   %mountpoint%: %used% / %total%
+
+[module/powermenu]
+type = custom/menu
+
+label-open =   
+;label-open-background = #dd0000
+;label-open-foreground = #fff
+label-close = cancel
+;label-close-background = #dd0000
+;label-close-foreground = #fff
+label-open-padding = 4 
+label-close-padding = 3 
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+menu-0-0-padding = 3
+menu-0-1-padding = 3
+
+menu-1-0 = reboot?  
+menu-1-0-exec = sudo reboot
+menu-1-0-padding = 3
+
+menu-2-0 = power off?  
+menu-2-0-exec = sudo poweroff
+menu-2-0-padding = 3
+
+[module/cpu]
+type = internal/cpu
+label =  %percentage:3%%
+
+[module/temperature]
+type = internal/temperature
+interval = 0.5
+thermal-zone = 0
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
+
+[module/memory]
+type = internal/memory
+format = <label>
+label =  %gb_used:7% / %gb_total:7%
+
+[module/network]
+type = internal/network
+interface = enp7s0
+label-connected =  %downspeed:11% |  %upspeed:11%
+label-disconnected = disconnected
+
+[module/mpd]
+type = internal/mpd
+
+host = 127.0.0.1
+port = 6600
+password = 
+
+; Seconds to sleep between progressbar/song timer sync
+; Default: 1
+interval = 2
+
+; Available tags:
+;   <label-song> (default)
+;   <label-time>
+;   <bar-progress>
+;   <toggle> - gets replaced with <icon-(pause|play)>
+;   <toggle-stop> - gets replaced with <icon-(stop|play)>
+;   <icon-random>
+;   <icon-repeat>
+;   <icon-repeatone>
+;   <icon-prev>
+;   <icon-stop>
+;   <icon-play>
+;   <icon-pause>
+;   <icon-next>
+;   <icon-seekb>
+;   <icon-seekf>
+format-online =    <label-song>
+
+; Available tokens:
+;   %artist%
+;   %album%
+;   %date%
+;   %title%
+; Default: %artist% - %title%
+label-song = %title%
+format-online-padding = 3

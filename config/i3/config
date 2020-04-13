@@ -133,21 +133,6 @@ client.unfocused        $bg-color           $bg-colo           $inactive-text-co
 client.focused_inactive $bg-color           $bg-colo           $inactive-text-color #00ff00
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
 
-# bar
-bar {
-        font pango:Inconsolata-g 10
-        status_command i3blocks -c ~/.dotfiles/i3blocks.conf
-        position top
-        colors {                
-                background $bg-color
-                separator #757575
-                #                  border             background         text
-                focused_workspace  $bg-color          $highlight-color   $text-color
-                inactive_workspace $bg-color          $bg-color          $text-color
-                urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-        }
-}
-
 # Capture entire screen to file
 bindsym Print exec --no-startup-id escrotum
 
@@ -155,7 +140,7 @@ bindsym Print exec --no-startup-id escrotum
 bindsym Shift+Print exec --no-startup-id escrotum -s -C
 
 # Gaps
-gaps inner 15
+gaps inner 10
 gaps outer 0
 #smart_gaps on
 hide_edge_borders smart

@@ -7,6 +7,7 @@
 - link:
     ~/.config/i3/config: config/i3/config
     ~/.config/picom/picom.conf: config/picom/picom.conf
+    ~/.config/polybar: config/polybar
     ~/.config/rofi/sidestyle.rasi: config/rofi/sidestyle.rasi
     ~/.config/termite/config: config/termite/config
     ~/.config/redshift.conf: config/redshift.conf

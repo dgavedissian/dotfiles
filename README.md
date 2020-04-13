@@ -15,4 +15,9 @@ If on linux, run this instead (to install extra configuration such as i3, etc):
 
 If on Arch Linux and using 'linux' config, install:
 
-	pacman -S i3 i3blocks sysstat rofi feh
+	pacman -S i3 ttf-font-awesome sysstat rofi feh
+
+From AUR:
+
+	siji-git
+
