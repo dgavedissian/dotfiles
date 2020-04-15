@@ -172,7 +172,7 @@ exec_always --no-startup-id xrdb -load ~/.Xresources
 exec_always picom -b --experimental-backends
 
 # Desktop Environment
-exec_always feh --bg-scale ~/.dotfiles/wallpapers/world-in-collision.jpg
+exec_always feh --bg-scale ~/.dotfiles/wallpapers/calm-emerge.png
 
 # NetworkManager Applet
 exec --no-startup-id nm-applet
