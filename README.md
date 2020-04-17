@@ -15,9 +15,8 @@ If on linux, run this instead (to install extra configuration such as i3, etc):
 
 If on Arch Linux and using 'linux' config, install:
 
-	pacman -S i3 ttf-font-awesome sysstat rofi feh
+	pacman -S i3 ttf-font-awesome sysstat rofi feh xorg-xrdb termite noto-fonts
 
 From AUR:
 
 	siji-git
-
