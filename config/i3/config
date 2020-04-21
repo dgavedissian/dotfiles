@@ -174,8 +174,8 @@ exec_always picom -b --experimental-backends
 # Desktop Environment
 exec_always feh --bg-scale ~/.dotfiles/wallpapers/calm-emerge.png
 
+# Bar
+exec_always ~/.config/polybar/launch.sh
+
 # NetworkManager Applet
 exec --no-startup-id nm-applet
-
-# Redshift
-exec_always redshift
