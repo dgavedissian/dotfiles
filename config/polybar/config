@@ -27,12 +27,12 @@ module-margin-right = 3
 
 font-0 = "Noto Sans:pixelsize=10;0"
 font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=12;3"
-font-2 = "Unifont:size=10:style=Medium;0"
-font-3 = "Material Icons:pixelsize=12;3"
+font-2 = "Siji:pixelsize=10"
+#font-3 = "Unifont:size=10:style=Medium;0"
 
 modules-left = i3
-modules-center = date
-modules-right = cpu temperature memory filesystem network pulseaudio
+modules-center = 
+modules-right = player-mpris-tail cpu temperature memory filesystem network pulseaudio date
 
 tray-position = right
 tray-padding = 0
@@ -160,23 +160,24 @@ ramp-headphones-0 = 
 
 [module/pulseaudio]
 type = internal/pulseaudio
-use-ui-max = true
+use-ui-max = false
 interval = 5
 label-volume =  %percentage%%
+label-muted =  %percentage%%
 click-right = pavucontrol &
 
-[module/spotify]
+[module/player-mpris-tail]
 type = custom/script
+exec = ~/.dotfiles/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py -f '{icon} {:artist:t18:{artist}:}{:artist: - :}{:t20:{title}:}  %{A1:~/.dotfiles/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py previous:} ⏮ %{A} %{A1:~/.dotfiles/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py play-pause:} {icon-reversed} %{A} %{A1:~/.dotfiles/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py next:} ⏭ %{A}'
+tail = true
 
-exec = /home/gamehelp16/Documents/np
-interval = 1
-
-format = <label>   
-;format-background = #dd00c6e0
-;format-foreground = #fff
-;format-padding = 4
-
-label = %output%
+#[module/player-mpris-tail]
+#type = custom/script
+#exec = ~/.dotfiles/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py -f '{icon} {artist} - {title}'
+#tail = true
+#click-left = ~/.dotfiles/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py previous &
+#click-right = ~/.dotfiles/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py next &
+#click-middle = ~/.dotfiles/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py play-pause &
 
 [module/filesystem]
 type = internal/fs

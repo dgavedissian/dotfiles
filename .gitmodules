@@ -7,3 +7,6 @@
 [submodule "gdb-dashboard"]
 	path = gdb-dashboard
 	url = https://github.com/cyrus-and/gdb-dashboard.git
+[submodule "polybar-scripts"]
+	path = polybar-scripts
+	url = git@github.com:polybar/polybar-scripts.git
