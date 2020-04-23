@@ -50,7 +50,7 @@ height = ${env:POLYBAR_HEIGHT}
 offset-x = 0
 offset-y = 0
 bottom = true
-dpi = 96
+dpi = -1
 border-top-size = 3
 border-bottom-size = 0
 border-right-size = 0
@@ -162,21 +162,6 @@ animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-framerate = 750
 
-[module/backlight]
-type = internal/backlight
-
-card = intel_backlight
-enable-scroll = true
-
-format = <ramp> <label>
-label = %percentage%
-
-ramp-0 = 🌕
-ramp-1 = 🌔
-ramp-2 = 🌓
-ramp-3 = 🌒
-ramp-4 = 🌑
-
 [module/volume]
 type = internal/pulseaudio
 format-volume = <label-volume>  <bar-volume>
@@ -281,7 +266,6 @@ type = internal/memory
 
 format = <label> <bar-used> 
 label =  
-#%gb_used:7% / %gb_total:7%
 
 bar-used-width = 20
 bar-used-foreground-0 = #aaff77
