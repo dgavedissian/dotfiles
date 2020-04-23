@@ -7,16 +7,31 @@ First, ensure `python` is available. After that, to install dotfiles on any syst
 
 	./install
 
-If on linux, run this instead (to install extra configuration such as i3, etc):
+If on Linux, install the 'desktop' configuration:
 
-	./install linux
+	./install desktop
 
-## Prerequisites
+then setup the polybar variables file `~/.dotfiles/polybar-variables.sh`, for example:
 
-If on Arch Linux and using 'linux' config, install:
+	export POLYBAR_HEIGHT=28
+	export POLYBAR_NETWORK_INTERFACE=wlp2s0
 
-	pacman -S i3 ttf-font-awesome sysstat rofi feh xorg-xrdb termite noto-fonts
+## Further configuration
 
-From AUR:
+Ensure to setup DPI correctly in `~/.xprofile` if on hidpi screen.
 
-	siji-git
+## Dependencies
+
+### Arch Linux
+
+Desktop:
+
+	pacman -S i3 sysstat rofi feh termite picom playerctl xorg-xrdb xorg-xbacklight network-manager-applet
+
+Fonts:
+
+	pacman -S ttf-font-awesome ttf-unifont noto-fonts siji-git
+
+Bar:
+
+	pacman -S polybar python-dbus python-gobject

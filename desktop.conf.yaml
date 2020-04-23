@@ -3,7 +3,6 @@
     - mkdir -p ~/.config/picom
     - mkdir -p ~/.config/rofi
     - mkdir -p ~/.config/termite
-    - "make -sC i3blocks-contrib/bandwidth2"
 - link:
     ~/.config/i3/config: config/i3/config
     ~/.config/picom/picom.conf: config/picom/picom.conf

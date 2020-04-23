@@ -148,34 +148,45 @@ for_window [class="^.*"] border pixel 0
 
 ####################
 # Key Bindings
+####################
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% # increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% # decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
-# Control playback
-bindsym $mod+p exec --no-startup-id playerctl play-pause
-bindsym $mod+bracketleft exec --no-startup-id playerctl previous
-bindsym $mod+bracketright exec --no-startup-id playerctl next
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
 # Switch between speakers and headset
 bindsym $mod-o exec --no-startup-id ~/.dotfiles/scripts/switch-output.sh
 
 ####################
-# Startup Applications
+# Startup Applications (on boot)
+####################
 
-exec xrandr --dpi 192
-exec_always --no-startup-id xrdb -load ~/.Xresources 
+# Xresources
+exec --no-startup-id xrdb -load ~/.Xresources
+
+# NetworkManager applet
+exec --no-startup-id nm-applet
+
+####################
+# Startup Applications (on i3 start)
+####################
 
 # Compositor
-exec_always picom -b --experimental-backends
+exec_always --no-startup-id picom -b --experimental-backends
 
-# Desktop Environment
-exec_always feh --bg-scale ~/.dotfiles/wallpapers/calm-emerge.png
+# Desktop Background
+exec_always --no-startup-id feh --bg-scale ~/.dotfiles/wallpapers/calm-emerge.png
 
 # Bar
-exec_always ~/.config/polybar/launch.sh
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 
-# NetworkManager Applet
-exec --no-startup-id nm-applet

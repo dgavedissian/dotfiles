@@ -1,8 +1,8 @@
 [bar/top]
-monitor = ${env:MONITOR:}
+monitor = ${env:MONITOR}
 
 width = 100%
-height = ${env:POLYBAR_OVERRIDE_HEIGHT:60}
+height = ${env:POLYBAR_HEIGHT}
 offset-x = 0
 offset-y = 0
 bottom = false
@@ -28,11 +28,11 @@ module-margin-right = 3
 font-0 = "Noto Sans:pixelsize=10;0"
 font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=12;3"
 font-2 = "Siji:pixelsize=10"
-#font-3 = "Unifont:size=10:style=Medium;0"
+font-3 = "Unifont:size=10:style=Medium;0"
 
-modules-left = i3
-modules-center = 
-modules-right = player-mpris-tail cpu temperature memory filesystem network pulseaudio date
+modules-left = powermenu i3
+modules-center = date
+modules-right = volume battery
 
 tray-position = right
 tray-padding = 0
@@ -41,6 +41,41 @@ tray-maxsize = 1000
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
+
+[bar/bottom]
+monitor = ${env:MONITOR}
+
+width = 100%
+height = ${env:POLYBAR_HEIGHT}
+offset-x = 0
+offset-y = 0
+bottom = true
+dpi = 96
+border-top-size = 3
+border-bottom-size = 0
+border-right-size = 0
+border-left-size = 0
+
+background = ${bar/top.background}
+foreground = ${bar/top.foreground}
+border-color = #4a888888
+
+underline-size = 2
+underline-color = #eee
+
+spacing = 0
+padding-left = 5
+padding-right = 5
+module-margin-left = 3
+module-margin-right = 3
+
+font-0 = "Noto Sans:pixelsize=10;0"
+font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=12;3"
+font-2 = "Siji:pixelsize=10"
+font-3 = "Unifont:size=10:style=Medium;0"
+
+modules-left = player-mpris-tail
+modules-right = cpu memory filesystem network ipaddress
 
 ; MODULES
 
@@ -107,9 +142,9 @@ poll-interval = 5
 format-charging = <animation-charging>  <label-charging>
 format-discharging = <ramp-capacity>  <label-discharging>
 format-full = <ramp-capacity>  <label-full>
-label-charging = %percentage%
-label-discharging = %percentage%
-label-full = %percentage%
+label-charging = %percentage%% (%time%)
+label-discharging = %percentage%% (%time%)
+label-full = %percentage%%
 format-charging-padding = 3
 format-discharging-padding = 3
 format-full-padding = 3
@@ -143,41 +178,30 @@ ramp-3 = 🌒
 ramp-4 = 🌑
 
 [module/volume]
-type = internal/volume
-
-format-volume = <ramp-volume>  <label-volume>
-format-muted = <label-muted>
-label-volume = %percentage%
-label-muted =   muted
-label-muted-foreground = #aaa
-format-volume-padding = 3
-format-muted-padding = 3
-
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-ramp-headphones-0 = 
-
-[module/pulseaudio]
 type = internal/pulseaudio
+format-volume = <label-volume>  <bar-volume>
 use-ui-max = false
 interval = 5
-label-volume =  %percentage%%
-label-muted =  %percentage%%
+label-volume = 
+label-muted = 
+
+bar-volume-width = 20
+bar-volume-foreground-0 = #aaff77
+bar-volume-foreground-1 = #aaff77
+bar-volume-foreground-2 = #fba922
+bar-volume-foreground-3 = #ff5555
+bar-volume-indicator = |
+bar-volume-indicator-foreground = #ff
+bar-volume-fill = ─
+bar-volume-empty = ─
+bar-volume-empty-foreground = #888
+
 click-right = pavucontrol &
 
 [module/player-mpris-tail]
 type = custom/script
-exec = ~/.dotfiles/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py -f '{icon} {:artist:t18:{artist}:}{:artist: - :}{:t20:{title}:}  %{A1:~/.dotfiles/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py previous:} ⏮ %{A} %{A1:~/.dotfiles/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py play-pause:} {icon-reversed} %{A} %{A1:~/.dotfiles/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py next:} ⏭ %{A}'
+exec = ~/.dotfiles/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py -f '%{A1:~/.dotfiles/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py previous:} ⏮ %{A} %{A1:~/.dotfiles/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py play-pause:} {icon-reversed} %{A} %{A1:~/.dotfiles/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py next:} ⏭ %{A} | {icon} {:t30:{title}:}{:artist: - :}{:artist:t30:{artist}:} '
 tail = true
-
-#[module/player-mpris-tail]
-#type = custom/script
-#exec = ~/.dotfiles/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py -f '{icon} {artist} - {title}'
-#tail = true
-#click-left = ~/.dotfiles/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py previous &
-#click-right = ~/.dotfiles/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py next &
-#click-middle = ~/.dotfiles/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py play-pause &
 
 [module/filesystem]
 type = internal/fs
@@ -217,7 +241,34 @@ menu-2-0-padding = 3
 
 [module/cpu]
 type = internal/cpu
-label =  %percentage:3%%
+interval = 0.5
+format = <label> <ramp-coreload>
+label = 
+
+ramp-coreload-0 = ▁
+ramp-coreload-0-font = 2
+ramp-coreload-0-foreground = #aaff77
+ramp-coreload-1 = ▂
+ramp-coreload-1-font = 2
+ramp-coreload-1-foreground = #aaff77
+ramp-coreload-2 = ▃
+ramp-coreload-2-font = 2
+ramp-coreload-2-foreground = #aaff77
+ramp-coreload-3 = ▄
+ramp-coreload-3-font = 2
+ramp-coreload-3-foreground = #aaff77
+ramp-coreload-4 = ▅
+ramp-coreload-4-font = 2
+ramp-coreload-4-foreground = #fba922
+ramp-coreload-5 = ▆
+ramp-coreload-5-font = 2
+ramp-coreload-5-foreground = #fba922
+ramp-coreload-6 = ▇
+ramp-coreload-6-font = 2
+ramp-coreload-6-foreground = #ff5555
+ramp-coreload-7 = █
+ramp-coreload-7-font = 2
+ramp-coreload-7-foreground = #ff5555
 
 [module/temperature]
 type = internal/temperature
@@ -227,49 +278,30 @@ hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
 
 [module/memory]
 type = internal/memory
-format = <label>
-label =  %gb_used:7% / %gb_total:7%
+
+format = <label> <bar-used> 
+label =  
+#%gb_used:7% / %gb_total:7%
+
+bar-used-width = 20
+bar-used-foreground-0 = #aaff77
+bar-used-foreground-1 = #aaff77
+bar-used-foreground-2 = #fba922
+bar-used-foreground-3 = #ff5555
+bar-used-indicator = |
+bar-used-indicator-foreground = #ff
+bar-used-fill = ─
+bar-used-empty = ─
+bar-used-empty-foreground = #888
 
 [module/network]
 type = internal/network
-interface = enp7s0
-label-connected =  %downspeed:11% |  %upspeed:11%
+interface = ${env:POLYBAR_NETWORK_INTERFACE}
+label-connected =  %downspeed:11%   %upspeed:11%
 label-disconnected = disconnected
 
-[module/mpd]
-type = internal/mpd
-
-host = 127.0.0.1
-port = 6600
-password = 
-
-; Seconds to sleep between progressbar/song timer sync
-; Default: 1
-interval = 2
-
-; Available tags:
-;   <label-song> (default)
-;   <label-time>
-;   <bar-progress>
-;   <toggle> - gets replaced with <icon-(pause|play)>
-;   <toggle-stop> - gets replaced with <icon-(stop|play)>
-;   <icon-random>
-;   <icon-repeat>
-;   <icon-repeatone>
-;   <icon-prev>
-;   <icon-stop>
-;   <icon-play>
-;   <icon-pause>
-;   <icon-next>
-;   <icon-seekb>
-;   <icon-seekf>
-format-online =    <label-song>
-
-; Available tokens:
-;   %artist%
-;   %album%
-;   %date%
-;   %title%
-; Default: %artist% - %title%
-label-song = %title%
-format-online-padding = 3
+[module/ipaddress]
+type = internal/network
+interface = ${env:POLYBAR_NETWORK_INTERFACE}
+label-connected =  %local_ip%
+label-disconnected =
