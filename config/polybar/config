@@ -34,7 +34,7 @@ modules-left = powermenu i3
 modules-center = date
 modules-right = volume battery
 
-tray-position = right
+tray-position = ${env:POLYBAR_TRAY_POSITION}
 tray-padding = 0
 tray-background = #66333333
 tray-maxsize = 1000

@@ -10,8 +10,15 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 source ~/.dotfiles/polybar-variables.sh
 
-# Launch bar on each monitor.
-for m in $(polybar --list-monitors | cut -d":" -f1); do
+PRIMARY=$(xrandr --query | grep " connected" | grep "primary" | cut -d" " -f1)
+OTHERS=$(xrandr --query | grep " connected" | grep -v "primary" | cut -d" " -f1)
+
+# Launch on primary monitor
+MONITOR=$PRIMARY POLYBAR_TRAY_POSITION=right polybar --reload top &
+MONITOR=$PRIMARY POLYBAR_TRAY_POSITION=right polybar --reload bottom &
+
+# Launch on all other monitors
+for m in $OTHERS; do
     MONITOR=$m polybar --reload top &
     MONITOR=$m polybar --reload bottom &
 done
