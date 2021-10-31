@@ -140,7 +140,7 @@ bindsym Print exec --no-startup-id escrotum
 bindsym Shift+Print exec --no-startup-id escrotum -s -C
 
 # Gaps
-gaps inner 10
+gaps inner 5
 gaps outer 0
 #smart_gaps on
 hide_edge_borders smart

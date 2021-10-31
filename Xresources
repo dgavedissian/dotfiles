@@ -12,5 +12,4 @@ rofi.opacity: 97
 rofi.font: Noto Sans 16
 
 ! dpi
-*.dpi: 192
-! *.dpi: 96
+! *.dpi: 192
