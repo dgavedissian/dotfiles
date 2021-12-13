@@ -7,7 +7,7 @@ DISABLE_UPDATE_PROMPT=true
 ZSH_THEME="dga"
 plugins=(git rust cargo)
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    plugins+=(brew osx)
+    plugins+=(brew macos)
 fi
 source $ZSH/oh-my-zsh.sh
 
@@ -19,8 +19,10 @@ export EDITOR=vim
 export VISUAL=$EDITOR
 
 # Dir colours
-if ls --color -d . >/dev/null 2>&1; then
-    eval `dircolors $HOME/.dotfiles/dir_colors`
+if hash dircolors 2>/dev/null; then
+    if ls --color -d . >/dev/null 2>&1; then
+        eval `dircolors $HOME/.dotfiles/dir_colors`
+    fi
 fi
 
 # Native symlinks on Windows
