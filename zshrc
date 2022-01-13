@@ -11,8 +11,10 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 source $ZSH/oh-my-zsh.sh
 
-# Cargo
-export PATH=$PATH:$HOME/.cargo/bin
+# Cargo (Rust package manager)
+if [[ -f "$HOME/.cargo/env" ]]; then
+    source $HOME/.cargo/env
+fi
 
 # Editor
 export EDITOR=vim
@@ -88,6 +90,6 @@ function aur_install {
 }
 
 # zsh local config
-if [ -f $HOME/.zshrc.local ]; then
+if [[ -f $HOME/.zshrc.local ]]; then
     source $HOME/.zshrc.local
 fi
