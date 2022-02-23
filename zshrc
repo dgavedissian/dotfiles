@@ -5,7 +5,7 @@ export ZSH_DISABLE_COMPFIX=true
 export ZSH=$HOME/.oh-my-zsh
 DISABLE_UPDATE_PROMPT=true
 ZSH_THEME="dga"
-plugins=(git rust)
+plugins=(zsh-autosuggestions zsh-syntax-highlighting git rust)
 if [[ "$OSTYPE" == "darwin"* ]]; then
     plugins+=(brew macos)
 fi
